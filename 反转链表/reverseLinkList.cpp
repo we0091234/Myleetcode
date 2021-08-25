@@ -133,13 +133,13 @@ ListNode * linkListReverse2(ListNode* &l1,int left ,int right)//链表反转二 
 }
 int main(int argc, char** argv)
 {
-    vector<int > array1={1,2,3,4,5};
+    vector<int > array1={1};
     vector<int> array2={9,9,9,9};
     ListNode *l1 =NULL;
     initLinkList(l1,array1);
     show(l1);
     // l1=linkListReverse(l1);
-    l1=linkListReverse2(l1,1,5);
+    l1=linkListReverse2(l1,1,1);
      show(l1);
     return 0;
 }

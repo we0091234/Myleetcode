@@ -71,18 +71,6 @@ ListNode *mergeListNode(ListNode*l1,ListNode* l2)
            l2=l2->next;
        }
     }
-    // while(l1)
-    // {
-    //        pTmp->next = new ListNode(l1->val);
-    //        pTmp=pTmp->next;
-    //         l1=l1->next;
-    // }
-    //  while(l2)
-    // {
-    //        pTmp->next = new ListNode(l2->val);
-    //        pTmp=pTmp->next;
-    //          l2=l2->next;
-    // }
 
     if (l1)
     {
