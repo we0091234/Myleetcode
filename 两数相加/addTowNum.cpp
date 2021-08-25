@@ -15,7 +15,7 @@ class Solution {
 public:
     ListNode* addTwoNumbers2(ListNode* l1, ListNode* l2)
     {
-         ListNode *l3 = new ListNode(0);
+    ListNode *l3 = new ListNode(0);
     ListNode *ltail = l3;
     int carry = 0;
     int remain =0;
@@ -34,21 +34,16 @@ public:
         }
         sum+=carry;  //加上进位
         remain = sum%10; //保留位
-        
-        ListNode *pNew = new ListNode(remain);
-        ltail->next=pNew;
-        ltail=pNew;
+        ltail->next=new ListNode(remain);
+        ltail=ltail->next;
 
         carry = sum/10; //进位
     }
     if(carry)  //最后看看还有没有进位
-    {
-         ListNode *pNew = new ListNode(carry);
-        ltail->next=pNew;
-        ltail=pNew;
-    }
+        ltail->next= new ListNode(carry);
      return l3->next;
     }
+    
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
     {
     ListNode *l3 = new ListNode();
