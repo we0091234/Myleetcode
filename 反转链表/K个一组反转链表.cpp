@@ -86,7 +86,7 @@ ListNode *kGroupReverse(ListNode *head,int k)
 
 int main(int argc,char **argv)
 {
-    vector<int>  array{1,2,3,4,5,6,7};
+    vector<int>  array{1,2,3,4,5,6,7,9};
     auto head= initNode(array);
     showNode(head);
     head=kGroupReverse(head,4);
