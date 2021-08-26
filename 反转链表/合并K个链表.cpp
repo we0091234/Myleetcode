@@ -90,7 +90,7 @@ ListNode *ListMergeTwo(ListNode *l1, ListNode* l2)
     return l3->next;
 }
 
-ListNode * ListNodeMerge(vector<ListNode*> lists)
+ListNode * ListNodeMerge(vector<ListNode*> lists) //分治法
 {
     // ListNode *l3 = nullptr;
     // for (int i = 0; i<lists.size(); i++)
