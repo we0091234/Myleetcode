@@ -117,9 +117,54 @@ ListNode * ListNodeMerge(vector<ListNode*> lists)
     return ListMergeTwo(ListNodeMerge(l),ListNodeMerge(r));
 }
 
+ListNode *rotateListNode(ListNode *head ,int k)
+{
+
+     ListNode *pHead = new ListNode(0);
+     pHead->next =head;
+     
+     auto p =head;
+     int length=0;
+     while(p)
+     {
+         length++;
+         p=p->next;
+     }
+      if (length==0||k==0)
+     {
+         return head;
+     }
+     p=head;
+     int i;
+     k =k%length;
+     for( i=1; i<length-k; i++)
+     {
+         p=p->next;
+     }
+    
+     
+     auto second = p->next;
+     if (second)
+     {
+     auto last= second;
+     auto final =last->next;
+     while(final)
+     {
+       last=last->next;
+       final=final->next;
+     }
+     p->next =NULL;
+     pHead->next =second;
+     last->next =head;
+     }
+    
+     return pHead->next;
+     
+}
+
 int main(int argc, char **argv)
 {
-    vector<int> array1={1};
+    vector<int> array1={1,2,3,4,5};
     vector<int> array2={2};
     vector<int> array3={26};
     ListNode *head1 = nullptr;
@@ -130,10 +175,10 @@ int main(int argc, char **argv)
       initListNode(head3,array3);
       vector<ListNode *> lists={head1,head2,head3};
     show(head1);
-    show(head2);
+    // show(head2);
     // show(head3);
     // auto l3 =ListMergeTwo(head1,head3);
-     auto l3 =ListNodeMerge(lists);
+     auto l3 =rotateListNode(head3,1);
 //    head= ListNodeReverse(head,1,1);
     show(l3);
     return 0;
