@@ -52,7 +52,7 @@ int getLength(ListNode* head)
     return length;
 }
 
-ListNode* deleteNode(ListNode* head,int N)
+ListNode* deleteNode(ListNode* head,int N) //自己实现
 {
 
     int length=0;
@@ -81,6 +81,27 @@ ListNode* deleteNode(ListNode* head,int N)
 
 
 }
+
+ListNode* deleteNode2(ListNode* head,int N) //参考别人实现
+{
+  ListNode *pHead = new ListNode(-1);
+  pHead->next=head;
+  auto pTmp =pHead;
+  auto p = head;
+  auto q=head;
+  for(int i = 0; i<N;i++)  //p节点先走N步，然后定义一个q从头开始
+  p=p->next;
+  while(p)    //然后p和q同时遍历，当p走length-N步到NULL时，q就停在了倒数第N个节点
+  {
+      p=p->next;
+      pTmp =pTmp->next;
+      q=q->next;
+  }
+  pTmp->next=q->next;
+  delete q;
+  return pHead->next;
+  
+}
 int main(int argc, char** argv)
 {
     vector<int > array1={1,2,3,4,5};
@@ -90,7 +111,7 @@ int main(int argc, char** argv)
     show(l1);
     cout<<getLength(l1)<<endl;
     // l1=linkListReverse(l1);
-    l1=deleteNode(l1,5);
+    l1=deleteNode2(l1,5);
      show(l1);
     return 0;
 }
