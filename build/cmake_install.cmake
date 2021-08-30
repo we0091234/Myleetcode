@@ -1,4 +1,4 @@
-# Install script for directory: /home/xiaolei/Myleetcode
+# Install script for directory: /home/xiaolei/leetCode
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/xiaolei/Myleetcode/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/xiaolei/leetCode/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

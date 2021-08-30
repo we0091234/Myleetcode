@@ -98,8 +98,26 @@ int   lengthOfLongestSubstring3(string s)  //参考他人实现3
     return maxl;
 }
 
+int zuichangwuchognfuzichuan(string s) //my 
+{
+    int a[256]={0};
+    int i = 0,j = 0;
+    int max= 0;
+    for(; j<s.length();j++)
+    {
+       if(a[s[j]]!=0)
+       {
+          i = std::max(i,a[s[j]]);
+       }
+           max = std::max(max,j-i+1);
+           a[s[j]]=j+1;
+    }
+    return max;
+    
+}
+
 int main(int argc, char ** argv)
 {
-    cout<<lengthOfLongestSubstring3(" ")<<endl;
+    cout<<zuichangwuchognfuzichuan("abcdefab")<<endl;
     return 0;
 }
