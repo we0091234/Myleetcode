@@ -2,6 +2,7 @@
 #include <string>
 #include <string.h>
 #include <unordered_set>
+#include <map>
 #include <string.h>
 using namespace std;
   int lengthOfLongestSubstring(string s)  //我自己的实现
@@ -60,8 +61,45 @@ using namespace std;
          }
          return maxl;
      }  
+int   lengthOfLongestSubstring2(string s)  //参考他人实现2
+{
+    int i=0,j=0;
+    map<char,int> mymap;
+    int max= 0;
+
+    for(j = 0; j<s.length();j++)
+    {
+        auto iter = mymap.find(s[j]);
+
+        if(iter!=mymap.end())
+        {
+            i =std::max(i,mymap[s[j]]);  //直接转移到不重复的下一个，比如abcdccb  ,初始i=0,在j移动到第二个c时，此时i直接移动到d。因为abcdc,bcdc,cdc,都是重复的只有dc才不重复。
+        } 
+            max = std::max(max,j-i+1);
+            mymap[s[j]]=j+1; 
+    }
+    return max;
+    
+}
+
+
+int   lengthOfLongestSubstring3(string s)  //参考他人实现3
+{
+    int i=0,j=0;
+    map<char,int> mymap;
+    int  a[128]={0};
+    int maxl= 0;
+    for(j = 0; j<s.length();j++)
+    {
+        i =std::max(i,a[s[j]]);
+        maxl = std::max(maxl,j-i+1);
+       a[s[j]]=j+1;
+    }
+    return maxl;
+}
+
 int main(int argc, char ** argv)
 {
-    cout<<lengthOfLongestSubstring("abcbcadfa")<<endl;
+    cout<<lengthOfLongestSubstring3(" ")<<endl;
     return 0;
 }

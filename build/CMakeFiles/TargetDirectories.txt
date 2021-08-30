@@ -1,0 +1,3 @@
+/home/xiaolei/Myleetcode/build/CMakeFiles/rebuild_cache.dir
+/home/xiaolei/Myleetcode/build/CMakeFiles/edit_cache.dir
+/home/xiaolei/Myleetcode/build/CMakeFiles/substring.dir
